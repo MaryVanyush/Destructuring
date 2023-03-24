@@ -1,11 +1,12 @@
 export default function destruction({ ...rest }) {
+  const special = { ...rest };
   const arr = [];
-  if (rest.description === undefined) {
-    rest.description = 'Описание недоступно';
+  if (special.description === undefined) {
+    special.description = 'Описание недоступно';
   }
-  for (const key in rest) {
+  for (const key in special) {
     if (key) {
-      arr.push(rest[key]);
+      arr.push(special[key]);
     }
   }
   return arr;
